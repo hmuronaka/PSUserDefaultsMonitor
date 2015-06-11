@@ -10,15 +10,14 @@ import Foundation
 
 extension NSDictionary {
     
-    internal func PS_jsonDictionaryFromDictionary() -> [NSObject:AnyObject] {
-        
-        return self.PS_jsonDictionaryFromDictionaryImpl(self as! [NSObject:AnyObject])
-        
-    }
     
     internal func PS_valueForDictionaryPath(path:String, separator:String) -> AnyObject! {
         
         var onePath = path
+        
+        if( onePath == "/" || onePath.isEmpty ) {
+            return self
+        }
         
         var range = path.rangeOfString(separator)
         if let location = range {
@@ -27,6 +26,8 @@ extension NSDictionary {
                 return children.PS_valueForDictionaryPath(path.substringFromIndex(location.startIndex.successor()), separator:separator)
             } else if let children = self.objectForKey(onePath) as? NSArray {
                 return children.PS_valueForArrayPath(path.substringFromIndex(location.startIndex.successor()), separator:separator)
+            } else if onePath.isEmpty {
+                return self.PS_valueForDictionaryPath(path.substringFromIndex(location.startIndex.successor()), separator: separator)
             } else {
                 return nil
             }
@@ -36,22 +37,18 @@ extension NSDictionary {
         
     }
     
-    private func PS_jsonDictionaryFromDictionaryImpl(dictionary:[NSObject:AnyObject]) -> [NSObject:AnyObject] {
+    internal override func PS_toJsonObject() -> AnyObject {
+        
+        return self.PS_toJsonObjectImpl(self as! [NSObject:AnyObject])
+        
+    }
+
+    private func PS_toJsonObjectImpl(dictionary:[NSObject:AnyObject]) -> [NSObject:AnyObject] {
         
         var result = [NSObject:AnyObject]()
         
         for (key,value) in dictionary {
-            
-            if value is NSDictionary {
-                result[key] = PS_jsonDictionaryFromDictionaryImpl(value as! [NSObject:AnyObject])
-            } else {
-                if NSJSONSerialization.isValidJSONObject(value) {
-                    result[key] = value
-                } else {
-                    result[key] = value.description
-                }
-            }
-            
+            result[key] = value.PS_toJsonObject()
         }
         return result
     }

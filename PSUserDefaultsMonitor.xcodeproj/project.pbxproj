@@ -17,6 +17,8 @@
 		D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */; };
 		D662A3591B29C12B009AA99F /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A3581B29C12B009AA99F /* Array+extension.swift */; };
 		D662A35A1B29C7AC009AA99F /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A3581B29C12B009AA99F /* Array+extension.swift */; };
+		D662A35C1B29CE12009AA99F /* Object+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A35B1B29CE12009AA99F /* Object+extension.swift */; };
+		D662A35D1B29CE60009AA99F /* Object+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A35B1B29CE12009AA99F /* Object+extension.swift */; };
 		D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */; };
 		F5A4DD6B3B07A527D611F865 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C82A25B4E843C27890E878 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,7 @@
 		D65EB4B71B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUserDefaultsMonitorTests.swift; sourceTree = "<group>"; };
 		D662A3581B29C12B009AA99F /* Array+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+extension.swift"; path = "Classes/Array+extension.swift"; sourceTree = "<group>"; };
+		D662A35B1B29CE12009AA99F /* Object+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Object+extension.swift"; path = "Classes/Object+extension.swift"; sourceTree = "<group>"; };
 		D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PSUserDefaultsMonitor.swift; path = Classes/PSUserDefaultsMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +114,7 @@
 				D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */,
 				D65EB4A01B293A73008631B8 /* Supporting Files */,
 				D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */,
+				D662A35B1B29CE12009AA99F /* Object+extension.swift */,
 			);
 			path = PSUserDefaultsMonitor;
 			sourceTree = "<group>";
@@ -288,6 +292,7 @@
 				D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */,
 				D662A3591B29C12B009AA99F /* Array+extension.swift in Sources */,
 				D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */,
+				D662A35C1B29CE12009AA99F /* Object+extension.swift in Sources */,
 				D60A5CA71B29950B00661E53 /* Dictionary+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D662A35D1B29CE60009AA99F /* Object+extension.swift in Sources */,
 				D662A35A1B29C7AC009AA99F /* Array+extension.swift in Sources */,
 				D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */,
 				D60A5CA81B299B7D00661E53 /* Dictionary+extension.swift in Sources */,

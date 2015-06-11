@@ -38,35 +38,38 @@ public class PSUserDefaultsMonitor : NSObject {
         
         let url = request.URL
         
-        
-        
-        
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let dictionary = userDefaults.dictionaryRepresentation()
+        let dictionary = userDefaults.dictionaryRepresentation() as NSDictionary
         
-        let jsonDictionary = jsonDictionaryFromDictionary(dictionary)
+        var jsonDictionary:NSObject!
         
-        return GCDWebServerDataResponse(JSONObject: jsonDictionary)
-    }
-    
-    private func jsonDictionaryFromDictionary(dictionary:[NSObject:AnyObject]) -> [NSObject:AnyObject] {
-        
-        var result = [NSObject:AnyObject]()
-        
-        for (key,value) in dictionary {
-            
-            if value is NSDictionary {
-                result[key] = jsonDictionaryFromDictionary(value as! [NSObject:AnyObject])
-            } else {
-                if NSJSONSerialization.isValidJSONObject(value) {
-                    result[key] = value
-                } else {
-                    result[key] = value.description
-                }
-            }
-            
+        if let dict = dictionary.PS_valueForDictionaryPath(url.path!, separator: "/") as? NSObject {
+            jsonDictionary = dict
+        } else {
+            jsonDictionary = [NSObject:AnyObject]()
         }
         
-        return result
+        return GCDWebServerDataResponse(JSONObject: jsonDictionary.PS_toJsonObject())
     }
+    
+//    private func jsonDictionaryFromDictionary(dictionary:[NSObject:AnyObject]) -> [NSObject:AnyObject] {
+//        
+//        var result = [NSObject:AnyObject]()
+//        
+//        for (key,value) in dictionary {
+//            
+//            if value is NSDictionary {
+//                result[key] = jsonDictionaryFromDictionary(value as! [NSObject:AnyObject])
+//            } else {
+//                if NSJSONSerialization.isValidJSONObject(value) {
+//                    result[key] = value
+//                } else {
+//                    result[key] = value.description
+//                }
+//            }
+//            
+//        }
+//        
+//        return result
+//    }
 }

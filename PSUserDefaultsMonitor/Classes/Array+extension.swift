@@ -34,4 +34,14 @@ extension NSArray {
         }
         return result
     }
+    
+    internal override func PS_toJsonObject() -> AnyObject {
+        
+        var result = [AnyObject](count: self.count, repeatedValue: 0)
+        for (index, value) in enumerate(self) {
+            result[index] = value.PS_toJsonObject()
+        }
+        
+        return result
+    }
 }
