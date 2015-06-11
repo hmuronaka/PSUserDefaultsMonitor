@@ -16,7 +16,7 @@ extension NSDictionary {
         
     }
     
-    internal func valueForDictionaryPath(path:String, separator:String) -> AnyObject! {
+    internal func PS_valueForDictionaryPath(path:String, separator:String) -> AnyObject! {
         
         var onePath = path
         
@@ -24,8 +24,9 @@ extension NSDictionary {
         if let location = range {
             onePath = path.substringToIndex(location.startIndex)
             if let children = self.objectForKey(onePath) as? NSDictionary {
-                return valueForDictionaryPath(path.substringFromIndex(location.startIndex), separator:separator)
-                
+                return children.PS_valueForDictionaryPath(path.substringFromIndex(location.startIndex.successor()), separator:separator)
+            } else if let children = self.objectForKey(onePath) as? NSArray {
+                return children.PS_valueForArrayPath(path.substringFromIndex(location.startIndex.successor()), separator:separator)
             } else {
                 return nil
             }

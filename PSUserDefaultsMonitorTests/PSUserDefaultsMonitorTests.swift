@@ -32,9 +32,21 @@ class PSUserDefaultsMonitorTests: XCTestCase {
         var dictionary2 = NSMutableDictionary()
         dictionary2["b"] = "B"
         dictionary["b"] = dictionary2
+        dictionary2["numbers"] = [1,2,3]
+        dictionary["c"] = dictionary2
+        dictionary2["anys"] = [1, "abc", ["Z": "zzz"]]
         
-        XCTAssertTrue(dictionary.valueForDictionaryPath("a", separator: ".").description ==  "A", "")
-        XCTAssertTrue(dictionary.valueForDictionaryPath("a.b", separator: ".").description ==  "B", "")
+        XCTAssertTrue(dictionary.PS_valueForDictionaryPath("a", separator: ".").description ==  "A", "")
+        XCTAssertTrue(dictionary.PS_valueForDictionaryPath("b.b", separator: ".").description ==  "B", "")
+        XCTAssertTrue(dictionary.PS_valueForDictionaryPath("c", separator: ".").isEqual(dictionary2), "")
+        XCTAssertNil(dictionary.PS_valueForDictionaryPath("", separator: "."))
+        XCTAssertNil(dictionary.PS_valueForDictionaryPath(".", separator: "."))
+        XCTAssertNil(dictionary.PS_valueForDictionaryPath("a.", separator: "."))
+        XCTAssertEqual(dictionary.PS_valueForDictionaryPath("c.numbers.0", separator: ".") as! NSNumber, NSNumber(int:1), "")
+        XCTAssertEqual(dictionary.PS_valueForDictionaryPath("c.anys.1", separator: ".") as! String, "abc", "")
+        XCTAssertEqual(dictionary.PS_valueForDictionaryPath("c.anys.1", separator: ".") as! String, "abc", "")
+        XCTAssertEqual(dictionary.PS_valueForDictionaryPath("c.anys.2.Z", separator: ".") as! String, "zzz", "")
+
     }
     
     
