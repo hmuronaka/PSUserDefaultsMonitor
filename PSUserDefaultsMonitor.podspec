@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "7.0"
   s.source   = { :git => "https://github.com/hmuronaka/PSUserDefaultsMonitor.git" }
   s.source_files = "PSUserDefaultsMonitor/Classes/*.swift"
-  s.dependency = 'GCDWebServer', "~> 3.0"
+#  s.dependency = 'GCDWebServer', "~> 3.0"
 end
