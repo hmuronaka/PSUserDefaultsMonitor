@@ -12,10 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var userDefaultsMonitor:PSUserDefaultsMonitor?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        userDefaultsMonitor = PSUserDefaultsMonitor()
+        
+        userDefaultsMonitor?.startMonitor(port:5050)
         return true
     }
 

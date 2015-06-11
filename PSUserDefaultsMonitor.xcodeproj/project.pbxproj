@@ -13,6 +13,8 @@
 		D65EB4AA1B293A73008631B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4A91B293A73008631B8 /* Images.xcassets */; };
 		D65EB4AD1B293A73008631B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */; };
 		D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */; };
+		D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */; };
+		F5A4DD6B3B07A527D611F865 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C82A25B4E843C27890E878 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39DCA5C2B46F2681F5A3E551 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C4C82A25B4E843C27890E878 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE15C731FDB34A9BC0D05D32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D65EB49D1B293A73008631B8 /* PSUserDefaultsMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSUserDefaultsMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65EB4A11B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4A21B293A73008631B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +41,8 @@
 		D65EB4B21B293A73008631B8 /* PSUserDefaultsMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSUserDefaultsMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65EB4B71B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUserDefaultsMonitorTests.swift; sourceTree = "<group>"; };
+		D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PSUserDefaultsMonitor.swift; path = Classes/PSUserDefaultsMonitor.swift; sourceTree = "<group>"; };
+		D6CD3BBF1B293C0A00E597EE /* PSUserDefaultsMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSUserDefaultsMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A4DD6B3B07A527D611F865 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +64,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09A48B336A7BC7C1AFA00EC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4C82A25B4E843C27890E878 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D65EB4941B293A73008631B8 = {
 			isa = PBXGroup;
 			children = (
 				D65EB49F1B293A73008631B8 /* PSUserDefaultsMonitor */,
 				D65EB4B51B293A73008631B8 /* PSUserDefaultsMonitorTests */,
 				D65EB49E1B293A73008631B8 /* Products */,
+				F66012CFC0B96B5A843BFCFD /* Pods */,
+				09A48B336A7BC7C1AFA00EC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +101,8 @@
 				D65EB4A91B293A73008631B8 /* Images.xcassets */,
 				D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */,
 				D65EB4A01B293A73008631B8 /* Supporting Files */,
+				D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */,
+				D6CD3BBF1B293C0A00E597EE /* PSUserDefaultsMonitor-Bridging-Header.h */,
 			);
 			path = PSUserDefaultsMonitor;
 			sourceTree = "<group>";
@@ -112,6 +132,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F66012CFC0B96B5A843BFCFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE15C731FDB34A9BC0D05D32 /* Pods.debug.xcconfig */,
+				39DCA5C2B46F2681F5A3E551 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D65EB4BC1B293A73008631B8 /* Build configuration list for PBXNativeTarget "PSUserDefaultsMonitor" */;
 			buildPhases = (
+				73316034BB082738E7E9BAEC /* Check Pods Manifest.lock */,
 				D65EB4991B293A73008631B8 /* Sources */,
 				D65EB49A1B293A73008631B8 /* Frameworks */,
 				D65EB49B1B293A73008631B8 /* Resources */,
+				7E71CCC062B183B271AA93D0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,6 +238,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		73316034BB082738E7E9BAEC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E71CCC062B183B271AA93D0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D65EB4991B293A73008631B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -214,6 +278,7 @@
 			files = (
 				D65EB4A51B293A73008631B8 /* ViewController.swift in Sources */,
 				D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */,
+				D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,21 +405,30 @@
 		};
 		D65EB4BD1B293A73008631B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE15C731FDB34A9BC0D05D32 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PSUserDefaultsMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PSUserDefaultsMonitor/PSUserDefaultsMonitor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D65EB4BE1B293A73008631B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39DCA5C2B46F2681F5A3E551 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PSUserDefaultsMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PSUserDefaultsMonitor/PSUserDefaultsMonitor-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -411,6 +485,7 @@
 				D65EB4BE1B293A73008631B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D65EB4BF1B293A73008631B8 /* Build configuration list for PBXNativeTarget "PSUserDefaultsMonitorTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +494,7 @@
 				D65EB4C11B293A73008631B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
