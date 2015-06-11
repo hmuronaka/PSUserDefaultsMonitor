@@ -12,7 +12,7 @@ public class PSUserDefaultsMonitor : NSObject {
     
     var webServer:GCDWebServer?
     
-    func startMonitor(#port:UInt) {
+    public func startMonitor(#port:UInt) {
         
         if( webServer != nil ) {
             println("server is already run!")
@@ -28,7 +28,7 @@ public class PSUserDefaultsMonitor : NSObject {
     }
     
     
-    func stopMonitor() {
+    public func stopMonitor() {
         webServer?.stop()
         webServer = nil
     }
