@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var dictionary = [String:AnyObject]()
+        dictionary["TEST"] = ["A":"1", "B":2,"C":[1,2,3], "D": ["AA":123]]
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
