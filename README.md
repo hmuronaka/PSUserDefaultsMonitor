@@ -40,6 +40,7 @@ use_frameworks! # for swift.
 
 show datas from your browser.
 
-URL: http://{your iphone's ipaddress}:{http server's port}/
+URL: http://{your iphone's ipaddress}:{http server's port}/{NSUserDefaults key(only Dictionary or Array}/
 
 example: http://192.168.0.4:5050/
+example: http://192.168.0.4:5050/AppleKeyboards/
