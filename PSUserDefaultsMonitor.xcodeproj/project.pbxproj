@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D60A5CA71B29950B00661E53 /* Dictionary+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */; };
 		D60A5CA81B299B7D00661E53 /* Dictionary+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */; };
+		D620F6B01B2A277C009C3E19 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620F6AF1B2A277C009C3E19 /* Weak.swift */; };
+		D620F6B11B2A3078009C3E19 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620F6AF1B2A277C009C3E19 /* Weak.swift */; };
+		D620F6B31B2A334D009C3E19 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D620F6B21B2A334D009C3E19 /* README.md */; };
 		D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4A21B293A73008631B8 /* AppDelegate.swift */; };
 		D65EB4A51B293A73008631B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4A41B293A73008631B8 /* ViewController.swift */; };
 		D65EB4A81B293A73008631B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4A61B293A73008631B8 /* Main.storyboard */; };
@@ -39,6 +42,8 @@
 		CE15C731FDB34A9BC0D05D32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D60A5C741B2952C900661E53 /* PSUserDefaultsMonitor-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSUserDefaultsMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 		D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+extension.swift"; path = "Classes/Dictionary+extension.swift"; sourceTree = "<group>"; };
+		D620F6AF1B2A277C009C3E19 /* Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Weak.swift; path = Classes/Weak.swift; sourceTree = "<group>"; };
+		D620F6B21B2A334D009C3E19 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D65EB49D1B293A73008631B8 /* PSUserDefaultsMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSUserDefaultsMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65EB4A11B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4A21B293A73008631B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,9 +86,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D620F6B41B2A35EB009C3E19 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D662A35B1B29CE12009AA99F /* Object+extension.swift */,
+				D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */,
+				D662A3581B29C12B009AA99F /* Array+extension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		D65EB4941B293A73008631B8 = {
 			isa = PBXGroup;
 			children = (
+				D620F6B21B2A334D009C3E19 /* README.md */,
 				D65EB49F1B293A73008631B8 /* PSUserDefaultsMonitor */,
 				D65EB4B51B293A73008631B8 /* PSUserDefaultsMonitorTests */,
 				D65EB49E1B293A73008631B8 /* Products */,
@@ -104,8 +120,7 @@
 		D65EB49F1B293A73008631B8 /* PSUserDefaultsMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				D662A3581B29C12B009AA99F /* Array+extension.swift */,
-				D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */,
+				D620F6B41B2A35EB009C3E19 /* Extension */,
 				D60A5C741B2952C900661E53 /* PSUserDefaultsMonitor-Bridging-Header.h */,
 				D65EB4A21B293A73008631B8 /* AppDelegate.swift */,
 				D65EB4A41B293A73008631B8 /* ViewController.swift */,
@@ -114,7 +129,7 @@
 				D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */,
 				D65EB4A01B293A73008631B8 /* Supporting Files */,
 				D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */,
-				D662A35B1B29CE12009AA99F /* Object+extension.swift */,
+				D620F6AF1B2A277C009C3E19 /* Weak.swift */,
 			);
 			path = PSUserDefaultsMonitor;
 			sourceTree = "<group>";
@@ -294,6 +309,8 @@
 				D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */,
 				D662A35C1B29CE12009AA99F /* Object+extension.swift in Sources */,
 				D60A5CA71B29950B00661E53 /* Dictionary+extension.swift in Sources */,
+				D620F6B31B2A334D009C3E19 /* README.md in Sources */,
+				D620F6B01B2A277C009C3E19 /* Weak.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +320,7 @@
 			files = (
 				D662A35D1B29CE60009AA99F /* Object+extension.swift in Sources */,
 				D662A35A1B29C7AC009AA99F /* Array+extension.swift in Sources */,
+				D620F6B11B2A3078009C3E19 /* Weak.swift in Sources */,
 				D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */,
 				D60A5CA81B299B7D00661E53 /* Dictionary+extension.swift in Sources */,
 			);
