@@ -2,6 +2,8 @@
 
 Simple Httpserver for NSUserDefaults.
 
+![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/example.png)
+
 # Install
 
 ```ruby
