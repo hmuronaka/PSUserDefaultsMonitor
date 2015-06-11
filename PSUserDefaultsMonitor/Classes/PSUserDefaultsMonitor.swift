@@ -52,24 +52,4 @@ public class PSUserDefaultsMonitor : NSObject {
         return GCDWebServerDataResponse(JSONObject: jsonDictionary.PS_toJsonObject())
     }
     
-//    private func jsonDictionaryFromDictionary(dictionary:[NSObject:AnyObject]) -> [NSObject:AnyObject] {
-//        
-//        var result = [NSObject:AnyObject]()
-//        
-//        for (key,value) in dictionary {
-//            
-//            if value is NSDictionary {
-//                result[key] = jsonDictionaryFromDictionary(value as! [NSObject:AnyObject])
-//            } else {
-//                if NSJSONSerialization.isValidJSONObject(value) {
-//                    result[key] = value
-//                } else {
-//                    result[key] = value.description
-//                }
-//            }
-//            
-//        }
-//        
-//        return result
-//    }
 }

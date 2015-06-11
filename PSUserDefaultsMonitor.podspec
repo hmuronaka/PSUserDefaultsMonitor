@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "PSUserDefaultsMonitor"
-  s.version     = "0.1.0"
+  s.version     = "0.2.0"
   s.summary     = "PSUserDefaultsMonitor is simle HTTPServer for NSUserDefaults"
   s.homepage    = "https://github.com/hmuronaka/PSUserDefaultsMonitor"
   s.license     = { :type => "MIT" }
