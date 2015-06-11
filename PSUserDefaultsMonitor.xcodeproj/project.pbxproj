@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D60A5C731B2951D000661E53 /* DmmyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A5C721B2951D000661E53 /* DmmyObject.m */; };
 		D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4A21B293A73008631B8 /* AppDelegate.swift */; };
 		D65EB4A51B293A73008631B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4A41B293A73008631B8 /* ViewController.swift */; };
 		D65EB4A81B293A73008631B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4A61B293A73008631B8 /* Main.storyboard */; };
@@ -31,6 +32,9 @@
 		39DCA5C2B46F2681F5A3E551 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C4C82A25B4E843C27890E878 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE15C731FDB34A9BC0D05D32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D60A5C711B2951D000661E53 /* DmmyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DmmyObject.h; path = Images.xcassets/DmmyObject.h; sourceTree = "<group>"; };
+		D60A5C721B2951D000661E53 /* DmmyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DmmyObject.m; path = Images.xcassets/DmmyObject.m; sourceTree = "<group>"; };
+		D60A5C741B2952C900661E53 /* PSUserDefaultsMonitor-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSUserDefaultsMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 		D65EB49D1B293A73008631B8 /* PSUserDefaultsMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSUserDefaultsMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65EB4A11B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4A21B293A73008631B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +46,6 @@
 		D65EB4B71B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUserDefaultsMonitorTests.swift; sourceTree = "<group>"; };
 		D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PSUserDefaultsMonitor.swift; path = Classes/PSUserDefaultsMonitor.swift; sourceTree = "<group>"; };
-		D6CD3BBF1B293C0A00E597EE /* PSUserDefaultsMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSUserDefaultsMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 		D65EB49F1B293A73008631B8 /* PSUserDefaultsMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				D60A5C741B2952C900661E53 /* PSUserDefaultsMonitor-Bridging-Header.h */,
 				D65EB4A21B293A73008631B8 /* AppDelegate.swift */,
 				D65EB4A41B293A73008631B8 /* ViewController.swift */,
 				D65EB4A61B293A73008631B8 /* Main.storyboard */,
@@ -102,7 +106,8 @@
 				D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */,
 				D65EB4A01B293A73008631B8 /* Supporting Files */,
 				D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */,
-				D6CD3BBF1B293C0A00E597EE /* PSUserDefaultsMonitor-Bridging-Header.h */,
+				D60A5C711B2951D000661E53 /* DmmyObject.h */,
+				D60A5C721B2951D000661E53 /* DmmyObject.m */,
 			);
 			path = PSUserDefaultsMonitor;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65EB4A51B293A73008631B8 /* ViewController.swift in Sources */,
+				D60A5C731B2951D000661E53 /* DmmyObject.m in Sources */,
 				D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */,
 				D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */,
 			);

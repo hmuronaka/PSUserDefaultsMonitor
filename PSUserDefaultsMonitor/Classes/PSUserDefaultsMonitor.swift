@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PSUserDefaultsMonitor {
+class PSUserDefaultsMonitor : NSObject {
     
     var webServer:GCDWebServer?
     
