@@ -39,8 +39,29 @@ public class PSUserDefaultsMonitor : NSObject {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let dictionary = userDefaults.dictionaryRepresentation()
         
-        var error:NSError?
+        let jsonDictionary = jsonDictionaryFromDictionary(dictionary)
         
-        return GCDWebServerDataResponse(JSONObject: dictionary)
+        return GCDWebServerDataResponse(JSONObject: jsonDictionary)
+    }
+    
+    private func jsonDictionaryFromDictionary(dictionary:[NSObject:AnyObject]) -> [NSObject:AnyObject] {
+        
+        var result = [NSObject:AnyObject]()
+        
+        for (key,value) in dictionary {
+            
+            if value is NSDictionary {
+                result[key] = jsonDictionaryFromDictionary(value as! [NSObject:AnyObject])
+            } else {
+                if NSJSONSerialization.isValidJSONObject(value) {
+                    result[key] = value
+                } else {
+                    result[key] = value.description
+                }
+            }
+            
+        }
+        
+        return result
     }
 }
