@@ -1,6 +1,6 @@
 # PSUserDefaultsMonitor
 
-Simple Httpserver for NSUserDefaults.
+Simple Httpserver for NSUserDefaults and objects
 
 ![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/example.png)
 
@@ -21,11 +21,17 @@ use_frameworks! # for swift.
 
 // AppDelegate.h
 @property(nonatomic, strong) PSUserDefaultsMonitor* monitor;
+@property(nonatomic, strong) NSDictionary* configuration;
 
 // AppDelegate.m
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  monitor = [PSUserDefaultsMonitor new];
+
+  configuration = @{"MyValue": @(10)};
+
+  PSUserDefaultsMonitor* monitor = [PSUserDefaultsMonitor defaultMonitor];
+  
+  [monitor setObject:configuration key:@"configuration"];
   [monitor startMonitorWithPort:5050]; // 5050 is http server listen port.
 }
 ```
@@ -38,8 +44,17 @@ use_frameworks! # for swift.
 
 ## show 
 
-show datas from your browser.
+## show NSUserDefaults from your browser.
 
-URL: http://{your iphone's ipaddress}:{http server's port}/
+http://{your iphone's ipaddress}:{http server's port}/U/
 
-example: http://192.168.0.4:5050/
+examples
+- http://192.168.0.4:5050/U/
+- http://192.168.0.4:5050/U/NSLanguages
+
+## show Objects
+
+http://{your iphone's ipaddress}:{http server's port}/O/
+
+examples
+- http://192.168.0.4:5050/O/

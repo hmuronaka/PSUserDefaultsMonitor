@@ -15,10 +15,18 @@ extension NSObject {
             return self.PS_toJsonObject()
         }
         
-        if NSJSONSerialization.isValidJSONObject(self) {
-            return self
+        var target:AnyObject! = self
+        
+        if let weakObject = self as? Weak<AnyObject> {
+            target = weakObject.value
+        }
+        
+        if target == nil {
+            return NSNull()
+        } else if NSJSONSerialization.isValidJSONObject(target) {
+            return target
         } else {
-            return self.description
+            return target.description
         }
     }
 }
