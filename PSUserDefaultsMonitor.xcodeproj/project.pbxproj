@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D60A5CA71B29950B00661E53 /* Dictionary+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */; };
+		D60A5CA81B299B7D00661E53 /* Dictionary+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */; };
 		D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4A21B293A73008631B8 /* AppDelegate.swift */; };
 		D65EB4A51B293A73008631B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4A41B293A73008631B8 /* ViewController.swift */; };
 		D65EB4A81B293A73008631B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4A61B293A73008631B8 /* Main.storyboard */; };
@@ -32,6 +34,7 @@
 		C4C82A25B4E843C27890E878 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE15C731FDB34A9BC0D05D32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D60A5C741B2952C900661E53 /* PSUserDefaultsMonitor-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSUserDefaultsMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
+		D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+extension.swift"; path = "Classes/Dictionary+extension.swift"; sourceTree = "<group>"; };
 		D65EB49D1B293A73008631B8 /* PSUserDefaultsMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSUserDefaultsMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65EB4A11B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4A21B293A73008631B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 				D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */,
 				D65EB4A01B293A73008631B8 /* Supporting Files */,
 				D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */,
+				D60A5CA61B29950B00661E53 /* Dictionary+extension.swift */,
 			);
 			path = PSUserDefaultsMonitor;
 			sourceTree = "<group>";
@@ -279,6 +283,7 @@
 				D65EB4A51B293A73008631B8 /* ViewController.swift in Sources */,
 				D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */,
 				D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */,
+				D60A5CA71B29950B00661E53 /* Dictionary+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */,
+				D60A5CA81B299B7D00661E53 /* Dictionary+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

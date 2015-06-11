@@ -36,6 +36,11 @@ public class PSUserDefaultsMonitor : NSObject {
     
     private func doGet(request:GCDWebServerRequest) -> GCDWebServerResponse {
         
+        let url = request.URL
+        
+        
+        
+        
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let dictionary = userDefaults.dictionaryRepresentation()
         

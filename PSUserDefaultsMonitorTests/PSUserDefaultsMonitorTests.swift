@@ -26,6 +26,18 @@ class PSUserDefaultsMonitorTests: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
+    func testDictionaryKeyPath() {
+        var dictionary = NSMutableDictionary()
+        dictionary["a"] = "A"
+        var dictionary2 = NSMutableDictionary()
+        dictionary2["b"] = "B"
+        dictionary["b"] = dictionary2
+        
+        XCTAssertTrue(dictionary.valueForDictionaryPath("a", separator: ".").description ==  "A", "")
+        XCTAssertTrue(dictionary.valueForDictionaryPath("a.b", separator: ".").description ==  "B", "")
+    }
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
