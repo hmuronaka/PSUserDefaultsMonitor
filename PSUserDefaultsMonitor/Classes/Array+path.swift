@@ -1,8 +1,8 @@
 //
-//  Array+extension.swift
+//  Array+path.swift
 //  PSUserDefaultsMonitor
 //
-//  Created by Muronaka Hiroaki on 2015/06/11.
+//  Created by Muronaka Hiroaki on 2015/06/13.
 //  Copyright (c) 2015年 plusadd. All rights reserved.
 //
 
@@ -11,13 +11,13 @@ import Foundation
 extension NSArray {
     
     internal func PS_valueForArrayPath(path:String, separator:String) -> AnyObject! {
-    
+        
         var onePath = path
-    
+        
         var range = path.rangeOfString(separator)
         
         var result:AnyObject!
-    
+        
         if let location = range {
             onePath = path.substringToIndex(location.startIndex)
             if let index = onePath.toInt() {
@@ -35,17 +35,4 @@ extension NSArray {
         return result
     }
     
-    internal override func PS_doJSonObject(#objectSet: NSMutableSet!) -> AnyObject {
-        
-        var result = [AnyObject](count: self.count, repeatedValue: 0)
-        for (index, value) in enumerate(self) {
-            if let obj = value as? NSObject {
-                result[index] = obj.PS_toJsonObject(objectSet:objectSet)
-            } else {
-                result[index] = value.description
-            }
-        }
-        
-        return result
-    }
 }
