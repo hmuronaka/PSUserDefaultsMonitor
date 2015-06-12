@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         dictionary["TEST"] = ["A":"1", "B":2,"C":[1,2,3], "D": ["AA":123]]
+        dictionary["TEST-Cyclic"] = ["Child":dictionary]
         
         NSUserDefaults.standardUserDefaults().setObject(dictionary, forKey: "TEST")
         

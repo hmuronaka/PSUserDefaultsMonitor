@@ -37,18 +37,20 @@ extension NSDictionary {
         
     }
     
-    internal override func PS_toJsonObject() -> AnyObject {
-        
-        return self.PS_toJsonObjectImpl(self as! [NSObject:AnyObject])
-        
+    internal override func PS_doJSonObject(#objectSet: NSMutableSet!) -> AnyObject {
+        return self.PS_toJsonObjectImpl(self as! [NSObject:AnyObject], objectSet:objectSet)
     }
 
-    private func PS_toJsonObjectImpl(dictionary:[NSObject:AnyObject]) -> [NSObject:AnyObject] {
+    private func PS_toJsonObjectImpl(dictionary:[NSObject:AnyObject], objectSet:NSMutableSet) -> [NSObject:AnyObject] {
         
         var result = [NSObject:AnyObject]()
         
         for (key,value) in dictionary {
-            result[key] = value.PS_toJsonObject()
+            if let obj = value as? NSObject {
+                result[key] = obj.PS_toJsonObject(objectSet:objectSet)
+            } else {
+                result[key] = value.description
+            }
         }
         return result
     }
