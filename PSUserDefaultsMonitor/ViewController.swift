@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     var dictionary = [String:AnyObject]()
+    
+    var point = (3, 5)
+    var point2 = CGPointMake(10, 29)
 
     override func viewDidLoad() {
         super.viewDidLoad()

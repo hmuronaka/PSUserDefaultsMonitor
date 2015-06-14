@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D60A5CA71B29950B00661E53 /* Dictionary+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A5CA61B29950B00661E53 /* Dictionary+toJsonObject.swift */; };
-		D60A5CA81B299B7D00661E53 /* Dictionary+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A5CA61B29950B00661E53 /* Dictionary+toJsonObject.swift */; };
 		D620F6B01B2A277C009C3E19 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620F6AF1B2A277C009C3E19 /* Weak.swift */; };
 		D620F6B11B2A3078009C3E19 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620F6AF1B2A277C009C3E19 /* Weak.swift */; };
 		D620F6B31B2A334D009C3E19 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D620F6B21B2A334D009C3E19 /* README.md */; };
@@ -19,14 +18,13 @@
 		D65EB4AD1B293A73008631B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */; };
 		D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */; };
 		D662A3591B29C12B009AA99F /* Array+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A3581B29C12B009AA99F /* Array+toJsonObject.swift */; };
-		D662A35A1B29C7AC009AA99F /* Array+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A3581B29C12B009AA99F /* Array+toJsonObject.swift */; };
-		D662A35C1B29CE12009AA99F /* Object+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A35B1B29CE12009AA99F /* Object+toJsonObject.swift */; };
-		D662A35D1B29CE60009AA99F /* Object+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A35B1B29CE12009AA99F /* Object+toJsonObject.swift */; };
 		D66FFE771B2B7B9300C5D1C2 /* Array+path.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FFE761B2B7B9300C5D1C2 /* Array+path.swift */; };
 		D66FFE781B2B7B9300C5D1C2 /* Array+path.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FFE761B2B7B9300C5D1C2 /* Array+path.swift */; };
 		D66FFE7A1B2B7BC400C5D1C2 /* Dictionary+path.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FFE791B2B7BC400C5D1C2 /* Dictionary+path.swift */; };
 		D66FFE7B1B2B7BC400C5D1C2 /* Dictionary+path.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FFE791B2B7BC400C5D1C2 /* Dictionary+path.swift */; };
 		D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */; };
+		D6ED3BE71B2D2F2F0058D2C4 /* Object+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED3BE61B2D2F2F0058D2C4 /* Object+toJsonObject.swift */; };
+		D6ED3BEE1B2D31C90058D2C4 /* NSObject+PS_Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ED3BED1B2D31C90058D2C4 /* NSObject+PS_Runtime.m */; };
 		F5A4DD6B3B07A527D611F865 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C82A25B4E843C27890E878 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +57,12 @@
 		D65EB4B71B293A73008631B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUserDefaultsMonitorTests.swift; sourceTree = "<group>"; };
 		D662A3581B29C12B009AA99F /* Array+toJsonObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+toJsonObject.swift"; path = "Classes/Array+toJsonObject.swift"; sourceTree = "<group>"; };
-		D662A35B1B29CE12009AA99F /* Object+toJsonObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Object+toJsonObject.swift"; path = "Classes/Object+toJsonObject.swift"; sourceTree = "<group>"; };
 		D66FFE761B2B7B9300C5D1C2 /* Array+path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+path.swift"; path = "Classes/Array+path.swift"; sourceTree = "<group>"; };
 		D66FFE791B2B7BC400C5D1C2 /* Dictionary+path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+path.swift"; path = "Classes/Dictionary+path.swift"; sourceTree = "<group>"; };
 		D6CD3BBD1B293BAD00E597EE /* PSUserDefaultsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PSUserDefaultsMonitor.swift; path = Classes/PSUserDefaultsMonitor.swift; sourceTree = "<group>"; };
+		D6ED3BE61B2D2F2F0058D2C4 /* Object+toJsonObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Object+toJsonObject.swift"; path = "Classes/Object+toJsonObject.swift"; sourceTree = "<group>"; };
+		D6ED3BED1B2D31C90058D2C4 /* NSObject+PS_Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PS_Runtime.m"; path = "Classes/NSObject+PS_Runtime.m"; sourceTree = "<group>"; };
+		D6ED3BF01B2D31E30058D2C4 /* NSObject+PS_Runtime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+PS_Runtime.h"; path = "Classes/NSObject+PS_Runtime.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,9 @@
 		D620F6B41B2A35EB009C3E19 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D662A35B1B29CE12009AA99F /* Object+toJsonObject.swift */,
+				D6ED3BF01B2D31E30058D2C4 /* NSObject+PS_Runtime.h */,
+				D6ED3BED1B2D31C90058D2C4 /* NSObject+PS_Runtime.m */,
+				D6ED3BE61B2D2F2F0058D2C4 /* Object+toJsonObject.swift */,
 				D60A5CA61B29950B00661E53 /* Dictionary+toJsonObject.swift */,
 				D66FFE791B2B7BC400C5D1C2 /* Dictionary+path.swift */,
 				D662A3581B29C12B009AA99F /* Array+toJsonObject.swift */,
@@ -311,16 +313,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6ED3BEE1B2D31C90058D2C4 /* NSObject+PS_Runtime.m in Sources */,
 				D65EB4A51B293A73008631B8 /* ViewController.swift in Sources */,
 				D65EB4A31B293A73008631B8 /* AppDelegate.swift in Sources */,
 				D662A3591B29C12B009AA99F /* Array+toJsonObject.swift in Sources */,
 				D66FFE771B2B7B9300C5D1C2 /* Array+path.swift in Sources */,
 				D66FFE7A1B2B7BC400C5D1C2 /* Dictionary+path.swift in Sources */,
 				D6CD3BBE1B293BAD00E597EE /* PSUserDefaultsMonitor.swift in Sources */,
-				D662A35C1B29CE12009AA99F /* Object+toJsonObject.swift in Sources */,
 				D60A5CA71B29950B00661E53 /* Dictionary+toJsonObject.swift in Sources */,
 				D620F6B31B2A334D009C3E19 /* README.md in Sources */,
 				D620F6B01B2A277C009C3E19 /* Weak.swift in Sources */,
+				D6ED3BE71B2D2F2F0058D2C4 /* Object+toJsonObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,13 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D662A35D1B29CE60009AA99F /* Object+toJsonObject.swift in Sources */,
 				D66FFE7B1B2B7BC400C5D1C2 /* Dictionary+path.swift in Sources */,
-				D662A35A1B29C7AC009AA99F /* Array+toJsonObject.swift in Sources */,
 				D620F6B11B2A3078009C3E19 /* Weak.swift in Sources */,
 				D66FFE781B2B7B9300C5D1C2 /* Array+path.swift in Sources */,
 				D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */,
-				D60A5CA81B299B7D00661E53 /* Dictionary+toJsonObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,12 +404,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -443,10 +448,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

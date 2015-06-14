@@ -49,20 +49,6 @@ class PSUserDefaultsMonitorTests: XCTestCase {
 
     }
     
-    func testToJsonObject() {
-        var dictionary = NSMutableDictionary()
-        dictionary["a"] = "A"
-        var dictionary2 = NSMutableDictionary()
-        dictionary2["b"] = "B"
-        dictionary["b"] = dictionary2
-        dictionary2["numbers"] = [1,2,3]
-        dictionary["c"] = dictionary2
-        dictionary2["anys"] = [1, "abc", ["Z": "zzz"]]
-        
-        XCTAssertNotNil(dictionary.PS_toJsonObject())
-
-    }
-    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

@@ -40,11 +40,20 @@ extension NSObject {
     }
     
     internal func PS_doJSonObject(# objectSet:NSMutableSet!) -> AnyObject {
-    
+        
         if NSJSONSerialization.isValidJSONObject(self) {
             return self
+        } else if ( self is NSNumber || self is NSString ) {
+            return self
         } else {
-            return self.description
+           var properties:NSDictionary = PS_dictionaryFromProperties(self)
+            if( properties.count > 0 ) {
+                // properties.PS_toJsonObject() is compile error.
+               var nsobject:NSObject = properties
+               return nsobject.PS_toJsonObject()
+            } else {
+                return self.description;
+            }
         }
     }
     
