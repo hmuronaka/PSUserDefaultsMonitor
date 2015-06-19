@@ -87,7 +87,7 @@ public class PSUserDefaultsMonitor : NSObject {
                 dictionary = self.objectMap
             } else if urlPath.hasPrefix(PSUserDefaultsMonitor.COREDATAS) {
                 prefix = PSUserDefaultsMonitor.COREDATAS
-                let tableName = url.path!.substringFromIndex(advance(url.path!.startIndex, count(prefix.utf16)))
+                let tableName = url.path!.substringFromIndex(advance(url.path!.startIndex, count(prefix.utf16) + 1 ))
                 dictionary = self.dictionaryFromCoreData(tableName)
             }
             
@@ -107,10 +107,17 @@ public class PSUserDefaultsMonitor : NSObject {
         
         let fetchRequest = NSFetchRequest()
         let entityDescription = NSEntityDescription.entityForName(tableName, inManagedObjectContext: self.managedObjectContext!)
+        fetchRequest.entity = entityDescription
+        fetchRequest.sortDescriptors = []
         
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultController.performFetch(nil)
         
-        return [tableName: fetchedResultController.fetchedObjects!]
+        if let objs = fetchedResultController.fetchedObjects {
+            return [tableName: objs]
+        } else {
+            return [tableName: "error"]
+        }
     }
     
 }

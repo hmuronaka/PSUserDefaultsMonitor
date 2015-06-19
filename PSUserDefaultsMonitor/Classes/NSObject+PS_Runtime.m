@@ -1,12 +1,13 @@
 //
 //  NSObject+PS_Runtime.m
-//  
+//
 //
 //  Created by Muronaka Hiroaki on 2015/06/14.
 //
 //
 
 #import "NSObject+PS_Runtime.h"
+#import <CoreData/CoreData.h>
 
 #import "objc/runtime.h"
 
@@ -25,7 +26,7 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
         NSString* propertyTypeName = [NSString stringWithFormat:@"%s", propertyType];
         NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
         char *iVar = property_copyAttributeValue(property, "V");
-        NSString *iVarName = [NSString stringWithFormat:@"%s", iVar];
+        NSString *iVarName = nil;
         
         if( !iVar ) {
             iVarName = propertyName;
