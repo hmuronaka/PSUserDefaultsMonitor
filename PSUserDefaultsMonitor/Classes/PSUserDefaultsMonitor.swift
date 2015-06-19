@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 public class PSUserDefaultsMonitor : NSObject {
     
@@ -18,9 +19,14 @@ public class PSUserDefaultsMonitor : NSObject {
     // Objects Map
     private static let OBJECTS = "/O"
     
+    // CoreData
+    private static let COREDATAS = "/C"
+    
     private var webServer:GCDWebServer?
     
     private var objectMap = [NSObject:AnyObject]()
+    
+    public var managedObjectContext:NSManagedObjectContext?
     
     private override init() {
         super.init()
@@ -79,6 +85,10 @@ public class PSUserDefaultsMonitor : NSObject {
             } else if urlPath.hasPrefix(PSUserDefaultsMonitor.OBJECTS) {
                 prefix = PSUserDefaultsMonitor.OBJECTS
                 dictionary = self.objectMap
+            } else if urlPath.hasPrefix(PSUserDefaultsMonitor.COREDATAS) {
+                prefix = PSUserDefaultsMonitor.COREDATAS
+                let tableName = url.path!.substringFromIndex(advance(url.path!.startIndex, count(prefix.utf16)))
+                dictionary = self.dictionaryFromCoreData(tableName)
             }
             
         }
@@ -91,6 +101,16 @@ public class PSUserDefaultsMonitor : NSObject {
             }
         }
         return GCDWebServerDataResponse(JSONObject: jsonDictionary.PS_toJsonObject())
+    }
+    
+    private func dictionaryFromCoreData(var tableName:String) -> NSDictionary! {
+        
+        let fetchRequest = NSFetchRequest()
+        let entityDescription = NSEntityDescription.entityForName(tableName, inManagedObjectContext: self.managedObjectContext!)
+        
+        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return [tableName: fetchedResultController.fetchedObjects!]
     }
     
 }
