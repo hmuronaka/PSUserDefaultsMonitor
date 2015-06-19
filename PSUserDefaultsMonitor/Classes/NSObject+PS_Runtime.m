@@ -1,12 +1,13 @@
 //
 //  NSObject+PS_Runtime.m
-//  
+//
 //
 //  Created by Muronaka Hiroaki on 2015/06/14.
 //
 //
 
 #import "NSObject+PS_Runtime.h"
+#import <CoreData/CoreData.h>
 
 #import "objc/runtime.h"
 
@@ -25,29 +26,35 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
         NSString* propertyTypeName = [NSString stringWithFormat:@"%s", propertyType];
         NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
         char *iVar = property_copyAttributeValue(property, "V");
-        NSString *iVarName = [NSString stringWithFormat:@"%s", iVar];
+        NSString *iVarName = nil;
+        
+        if( iVar ) {
+            iVarName = [NSString stringWithFormat:@"%s", iVar];
+        } else if([obj isKindOfClass:[NSManagedObject class]] ) {
+            iVarName = propertyName;
+        }
         
         NSLog(@"iVarName=%@, name=%@, type=%@", iVarName, propertyName, propertyTypeName);
-        if( iVar ) {
-//            switch (propertyType[0]) {
-//                case 'i': // int
-//                case 's': // short
-//                case 'l': // long
-//                case 'q': // long long
-//                case 'I': // unsigned int
-//                case 'S': // unsigned short
-//                case 'L': // unsigned long
-//                case 'Q': // unsigned long long
-//                case 'f': // float
-//                case 'd': // double
-//                case 'B': // BOOL
-//                    NSLog(@"value=%@, name=%@, type=%@", [self valueForKey:iVarName], propertyName, propertyTypeName);
-//                    //                [aCoder encodeInteger:[[self valueForKey:iVarName] intValue] forKey:propertyName];
-//                    break;
-//                default:
-//                    NSLog(@"object=%@, name=%@ type=%@", [self valueForKey:iVarName], propertyName, propertyTypeName);
-//                    //                [aCoder encodeObject:[self valueForKey:iVarName] forKey:propertyName];
-//            }
+        if( iVarName ) {
+            //            switch (propertyType[0]) {
+            //                case 'i': // int
+            //                case 's': // short
+            //                case 'l': // long
+            //                case 'q': // long long
+            //                case 'I': // unsigned int
+            //                case 'S': // unsigned short
+            //                case 'L': // unsigned long
+            //                case 'Q': // unsigned long long
+            //                case 'f': // float
+            //                case 'd': // double
+            //                case 'B': // BOOL
+            //                    NSLog(@"value=%@, name=%@, type=%@", [self valueForKey:iVarName], propertyName, propertyTypeName);
+            //                    //                [aCoder encodeInteger:[[self valueForKey:iVarName] intValue] forKey:propertyName];
+            //                    break;
+            //                default:
+            //                    NSLog(@"object=%@, name=%@ type=%@", [self valueForKey:iVarName], propertyName, propertyTypeName);
+            //                    //                [aCoder encodeObject:[self valueForKey:iVarName] forKey:propertyName];
+            //            }
             if( [obj valueForKey:iVarName] == nil ) {
                 result[propertyName] = [NSNull null];
             } else {
