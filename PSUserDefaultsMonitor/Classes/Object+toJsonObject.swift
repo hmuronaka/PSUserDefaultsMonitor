@@ -50,7 +50,7 @@ extension NSObject {
             if( properties.count > 0 ) {
                 // properties.PS_toJsonObject() is compile error.
                var nsobject:NSObject = properties
-               return nsobject.PS_toJsonObject()
+                return nsobject.PS_toJsonObject(objectSet:objectSet)
             } else {
                 return self.description;
             }

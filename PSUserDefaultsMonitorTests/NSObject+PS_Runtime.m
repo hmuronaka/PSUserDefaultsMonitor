@@ -27,12 +27,8 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
         char *iVar = property_copyAttributeValue(property, "V");
         NSString *iVarName = [NSString stringWithFormat:@"%s", iVar];
         
-        if( !iVar ) {
-            iVarName = propertyName;
-        }
-        
         NSLog(@"iVarName=%@, name=%@, type=%@", iVarName, propertyName, propertyTypeName);
-//        if( iVar ) {
+        if( iVar ) {
 //            switch (propertyType[0]) {
 //                case 'i': // int
 //                case 's': // short
@@ -52,21 +48,15 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
 //                    NSLog(@"object=%@, name=%@ type=%@", [self valueForKey:iVarName], propertyName, propertyTypeName);
 //                    //                [aCoder encodeObject:[self valueForKey:iVarName] forKey:propertyName];
 //            }
-        
-        if( [obj respondsToSelector:NSSelectorFromString(iVarName)] ) {
-            @try {
-                if( [obj valueForKey:iVarName] == nil ) {
-                    result[propertyName] = [NSNull null];
-                } else {
-                    id value = [obj valueForKey:iVarName];
-                    if( [value isKindOfClass:[NSObject class]] ) {
-                        result[propertyName] = value;
-                    } else {
-                        result[propertyName] = [NSString stringWithFormat:@"%@", value];
-                    }
-                }
-            } @catch(NSException* e) {
+            if( [obj valueForKey:iVarName] == nil ) {
                 result[propertyName] = [NSNull null];
+            } else {
+                id value = [obj valueForKey:iVarName];
+                if( [value isKindOfClass:[NSObject class]] ) {
+                    result[propertyName] = value;
+                } else {
+                    result[propertyName] = [NSString stringWithFormat:@"%@", value];
+                }
             }
         } else {
             result[propertyName] = [NSNull null];
