@@ -26,6 +26,9 @@ public class PSUserDefaultsMonitor : NSObject {
     
     private var objectMap = [NSObject:AnyObject]()
     
+    // NOTE:
+    // Should I use dictionary for saving managedObjectContexts or getters of managedObjectContexts?
+    // Shoudl I use `weak`?
     public var managedObjectContext:NSManagedObjectContext?
     
     private override init() {
@@ -69,7 +72,6 @@ public class PSUserDefaultsMonitor : NSObject {
     
     // MARK: -
     // MARK: HTTP Server
-    
     private func doGet(request:GCDWebServerRequest) -> GCDWebServerResponse {
         
         let url = request.URL
@@ -80,14 +82,13 @@ public class PSUserDefaultsMonitor : NSObject {
             
             if urlPath.hasPrefix(PSUserDefaultsMonitor.USER_DEFAULTS) {
                 prefix = PSUserDefaultsMonitor.USER_DEFAULTS
-                    urlPath.substringFromIndex(advance(urlPath.startIndex, count(PSUserDefaultsMonitor.USER_DEFAULTS.utf16)))
                 dictionary = NSUserDefaults.standardUserDefaults().dictionaryRepresentation() as NSDictionary
             } else if urlPath.hasPrefix(PSUserDefaultsMonitor.OBJECTS) {
                 prefix = PSUserDefaultsMonitor.OBJECTS
                 dictionary = self.objectMap
             } else if urlPath.hasPrefix(PSUserDefaultsMonitor.COREDATAS) {
                 prefix = PSUserDefaultsMonitor.COREDATAS
-                let tableName = url.path!.substringFromIndex(advance(url.path!.startIndex, count(prefix.utf16) + 1 ))
+                let tableName = urlPath.substringSafety(fromIndex: count(prefix.utf16) + 1)
                 dictionary = self.dictionaryFromCoreData(tableName)
             }
             
@@ -95,7 +96,7 @@ public class PSUserDefaultsMonitor : NSObject {
         
         var jsonDictionary:NSObject! = [NSObject:AnyObject]()
         if dictionary != nil {
-            let path = url.path!.substringFromIndex(advance(url.path!.startIndex, count(prefix.utf16)))
+            let path = url.path!.substringSafety(fromIndex: count(prefix.utf16))
             if let dict = dictionary.PS_valueForDictionaryPath(path, separator: "/") as? NSObject {
                 jsonDictionary = dict
             }

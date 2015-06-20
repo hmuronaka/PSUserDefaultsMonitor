@@ -26,7 +26,7 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
         NSString* propertyTypeName = [NSString stringWithFormat:@"%s", propertyType];
         NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
         char *iVar = property_copyAttributeValue(property, "V");
-        NSString *iVarName = nil;
+        NSString *iVarName = [NSString stringWithFormat:@"%s", iVar];
         
         if( !iVar ) {
             iVarName = propertyName;
