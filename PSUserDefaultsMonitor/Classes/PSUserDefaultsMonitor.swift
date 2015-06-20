@@ -88,10 +88,11 @@ public class PSUserDefaultsMonitor : NSObject {
                 dictionary = self.objectMap
             } else if urlPath.hasPrefix(PSUserDefaultsMonitor.COREDATAS) {
                 prefix = PSUserDefaultsMonitor.COREDATAS
-                let tableName = urlPath.substringSafety(fromIndex: count(prefix.utf16) + 1)
-                dictionary = self.dictionaryFromCoreData(tableName)
+                let match = urlPath.match("\(prefix)/([^/]+)/")
+                if let tableName = match[1] {
+                    dictionary = self.dictionaryFromCoreData(tableName)
+                }
             }
-            
         }
         
         var jsonDictionary:NSObject! = [NSObject:AnyObject]()

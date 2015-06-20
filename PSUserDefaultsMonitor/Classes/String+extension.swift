@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    func substringSafety(fromIndex:Int, length:Int) -> String {
+    func substringSafety(# fromIndex:Int, length:Int) -> String {
         
         if fromIndex > count(self) {
             return ""
@@ -28,6 +28,28 @@ extension String {
     }
     
     func substringSafety(# fromIndex:Int) -> String {
-        return substringSafety(fromIndex, length: -1)
+        return substringSafety(fromIndex: fromIndex, length: -1)
     }
+    
+    func substringWithNSRange(nsrange:NSRange) -> String {
+        return substringSafety(fromIndex:nsrange.location, length: nsrange.length)
+    }
+    
+    func rangeFromNSRange(nsrange:NSRange) -> Range<String.Index> {
+        return Range<String.Index>(start: advance(self.startIndex, nsrange.location), end: advance(self.startIndex, nsrange.location + nsrange.length))
+    }
+    
+    func match(pattern:String) -> PAMatch  {
+        var error:NSError?
+        let regex = NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.allZeros, error: &error)
+        
+        if error != nil {
+            println("\(error!)")
+        }
+        
+        let nsmatch = regex?.firstMatchInString(self , options: NSMatchingOptions.allZeros, range: NSMakeRange(0, count(self)))
+        
+        return PAMatch(originalString: self, match: nsmatch)
+    }
+    
 }

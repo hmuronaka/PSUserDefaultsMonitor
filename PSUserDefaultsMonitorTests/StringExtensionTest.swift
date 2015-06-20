@@ -24,18 +24,18 @@ class StringExtensionTest: XCTestCase {
     
     func testSubString() {
         
-        XCTAssertEqual("A", "A".substringSafety(0, length: 1))
+        XCTAssertEqual("A", "A".substringSafety(fromIndex: 0, length: 1))
         
         
-        XCTAssertEqual("B", "ABC".substringSafety(1, length: 1))
-        XCTAssertEqual("BC", "ABC".substringSafety(1, length: 2))
-        XCTAssertEqual("BC", "ABC".substringSafety(1, length: 6))
+        XCTAssertEqual("B", "ABC".substringSafety(fromIndex: 1, length: 1))
+        XCTAssertEqual("BC", "ABC".substringSafety(fromIndex: 1, length: 2))
+        XCTAssertEqual("BC", "ABC".substringSafety(fromIndex: 1, length: 6))
         
-        XCTAssertEqual("", "ABC".substringSafety(3, length: 6))
-        XCTAssertEqual("", "ABC".substringSafety(4, length: 1))
+        XCTAssertEqual("", "ABC".substringSafety(fromIndex: 3, length: 6))
+        XCTAssertEqual("", "ABC".substringSafety(fromIndex: 4, length: 1))
         
-        XCTAssertEqual("", "ABC".substringSafety(0, length: 0))
-        XCTAssertEqual("", "".substringSafety(0, length: 1))
+        XCTAssertEqual("", "ABC".substringSafety(fromIndex: 0, length: 0))
+        XCTAssertEqual("", "".substringSafety(fromIndex: 0, length: 1))
     }
 
 
