@@ -22,37 +22,19 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
     
     for (int i = 0; i < propertyCount; i++) {
         objc_property_t property = properties[i];
-        char *propertyType = property_copyAttributeValue(property, "T");
-        NSString* propertyTypeName = [NSString stringWithFormat:@"%s", propertyType];
+        //char *propertyType = property_copyAttributeValue(property, "T");
+        //NSString* propertyTypeName = [NSString stringWithFormat:@"%s", propertyType];
+        //free (propertyType);
         NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
         char *iVar = property_copyAttributeValue(property, "V");
         NSString *iVarName = [NSString stringWithFormat:@"%s", iVar];
+        free(iVar);
         
         if( !iVar ) {
             iVarName = propertyName;
         }
         
-        NSLog(@"iVarName=%@, name=%@, type=%@", iVarName, propertyName, propertyTypeName);
-//        if( iVar ) {
-//            switch (propertyType[0]) {
-//                case 'i': // int
-//                case 's': // short
-//                case 'l': // long
-//                case 'q': // long long
-//                case 'I': // unsigned int
-//                case 'S': // unsigned short
-//                case 'L': // unsigned long
-//                case 'Q': // unsigned long long
-//                case 'f': // float
-//                case 'd': // double
-//                case 'B': // BOOL
-//                    NSLog(@"value=%@, name=%@, type=%@", [self valueForKey:iVarName], propertyName, propertyTypeName);
-//                    //                [aCoder encodeInteger:[[self valueForKey:iVarName] intValue] forKey:propertyName];
-//                    break;
-//                default:
-//                    NSLog(@"object=%@, name=%@ type=%@", [self valueForKey:iVarName], propertyName, propertyTypeName);
-//                    //                [aCoder encodeObject:[self valueForKey:iVarName] forKey:propertyName];
-//            }
+        //NSLog(@"iVarName=%@, name=%@, type=%@", iVarName, propertyName, propertyTypeName);
         
         if( [obj respondsToSelector:NSSelectorFromString(iVarName)] ) {
             @try {
@@ -72,8 +54,6 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
         } else {
             result[propertyName] = [NSNull null];
         }
-        free(iVar);
-        free (propertyType);
     }
     free(properties);
     

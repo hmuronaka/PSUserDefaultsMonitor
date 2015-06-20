@@ -107,15 +107,7 @@ public class PSUserDefaultsMonitor : NSObject {
     
     private func dictionaryFromCoreData(var tableName:String) -> NSDictionary! {
         
-        let fetchRequest = NSFetchRequest()
-        let entityDescription = NSEntityDescription.entityForName(tableName, inManagedObjectContext: self.managedObjectContext!)
-        fetchRequest.entity = entityDescription
-        fetchRequest.sortDescriptors = []
-        
-        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultController.performFetch(nil)
-        
-        if let objs = fetchedResultController.fetchedObjects {
+        if let objs = NSManagedObject.all(tableName: tableName, managedObjectContext: self.managedObjectContext) {
             return [tableName: objs]
         } else {
             return [tableName: "error"]
