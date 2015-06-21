@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 internal class PAMatch: NSObject {
     

@@ -52,4 +52,20 @@ extension String {
         return PAMatch(originalString: self, match: nsmatch)
     }
     
+    func removeMatchedString(# pattern:String) -> String? {
+        
+        var error:NSError?
+        let regex = NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.allZeros, error: &error)
+        
+        if error != nil {
+            println("\(error!)")
+            return nil
+        }
+        
+        let result = regex?.stringByReplacingMatchesInString(self, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, count(self)), withTemplate: "")
+        
+        return result
+        
+    }
+    
 }

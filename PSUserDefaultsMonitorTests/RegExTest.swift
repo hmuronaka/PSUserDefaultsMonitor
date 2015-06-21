@@ -23,9 +23,11 @@ class RegExTest: XCTestCase {
 
     func testExample() {
         let paMatch:PAMatch = "http://C/TableName/".match("http://C/(.*)/")
+        XCTAssertEqual(paMatch[0]!, "http://C/TableName/")
         XCTAssertEqual(paMatch[1]!, "TableName")
         
         let paMatch2:PAMatch = "http://C/TableName/".match("http://C/([^/]+)")
+        XCTAssertEqual(paMatch2[0]!, "http://C/TableName")
         XCTAssertEqual(paMatch2[1]!, "TableName")
     }
 
@@ -34,6 +36,14 @@ class RegExTest: XCTestCase {
         self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testRemovePattern() {
+        
+        XCTAssertEqual("ABC", "ABC".removeMatchedString(pattern: "^.*\\.")!)
+        XCTAssertEqual("DEF", "ABC.DEF".removeMatchedString(pattern: "^.*\\.")!)
+        XCTAssertEqual("GHI", "ABC.DEF.GHI".removeMatchedString(pattern: "^(.*\\.)*")!)
+        
     }
 
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Address : NSObject {
+class TAddress : NSObject {
     var address:String
     
     init(_ address:String) {
@@ -17,10 +17,10 @@ class Address : NSObject {
     }
 }
 
-class Person : NSObject {
+class TPerson : NSObject {
     var name:String?
     var age:Int
-    var address:Address?
+    var address:TAddress?
     
     init(name:String, age:Int) {
         self.name = name
@@ -28,8 +28,8 @@ class Person : NSObject {
     }
 }
 
-class Family : NSObject {
+class TFamily : NSObject {
     
-    var member:Array<Person> = []
+    var member:Array<TPerson> = []
     
 }

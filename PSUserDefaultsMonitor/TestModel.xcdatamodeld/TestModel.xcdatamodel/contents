@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Address" representedClassName="PSUserDefaultsMonitorTests.Address" syncable="YES">
+    <entity name="Address" representedClassName="PSUserDefaultsMonitor.Address" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="address" inverseEntity="Person" syncable="YES"/>
     </entity>
