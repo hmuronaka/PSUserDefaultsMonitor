@@ -29,29 +29,27 @@ class ViewController: UIViewController {
         PSUserDefaultsMonitor.defaultMonitor.managedObjectContext = self.context.managedObjectContext
         
         
-//        // Do any additional setup after loading the view, typically from a nib.
-//        var address = Address.create(context.managedObjectContext) as! Address
-//        address.address = "A"
-//        
-//        var address2 = Address.create(context.managedObjectContext) as! Address
-//        address2.address = "B"
-//        // Put setup code here. This method is called before the invocation of each test method in the class.
-//        
-//        var p1 = Person.create(context.managedObjectContext) as! Person
-//        p1.name = "n1"
-//        p1.address = address
-//        
-//        var p2 = Person.create(context.managedObjectContext) as! Person
-//        p2.name = "n2"
-//        p2.address = address
-//        
-//        var p3 = Person.create(context.managedObjectContext) as! Person
-//        p3.name = "n3"
-//        p3.address = address2
+        var address = Address.create(context.managedObjectContext) as! Address
+        address.address = "A"
+        
+        var address2 = Address.create(context.managedObjectContext) as! Address
+        address2.address = "B"
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        var p1 = Person.create(context.managedObjectContext) as! Person
+        p1.name = "n1"
+        p1.address = address
+        
+        var p2 = Person.create(context.managedObjectContext) as! Person
+        p2.name = "n2"
+        p2.address = address
+        
+        var p3 = Person.create(context.managedObjectContext) as! Person
+        p3.name = "n3"
+        p3.address = address2
         
 //        Person.truncateAll(self.context.managedObjectContext)
 //        Address.truncateAll(self.context.managedObjectContext)
-//        
 //        self.context.managedObjectContext?.save(nil)
         
     }

@@ -62,7 +62,7 @@ class toJSONObjectTest: XCTestCase {
         XCTAssertEqual(3, json.count)
         XCTAssertEqual("ABC", json["name"] as! String)
         XCTAssertEqual(NSNumber(int: 1), json["age"] as! NSNumber)
-        XCTAssertEqual("<null>", json["address"] as! String)
+        XCTAssertEqual("null", json["address"] as! String)
     }
     
     func testTPerson() {

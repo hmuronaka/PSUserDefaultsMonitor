@@ -26,6 +26,7 @@
 		D65EB4AA1B293A73008631B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4A91B293A73008631B8 /* Images.xcassets */; };
 		D65EB4AD1B293A73008631B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65EB4AB1B293A73008631B8 /* LaunchScreen.xib */; };
 		D65EB4B91B293A73008631B8 /* PSUserDefaultsMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65EB4B81B293A73008631B8 /* PSUserDefaultsMonitorTests.swift */; };
+		D65ECAF51B36FB1000E3C23C /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D634FF471B363CF600CB07C4 /* TestModel.xcdatamodeld */; };
 		D662A3591B29C12B009AA99F /* Array+toJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A3581B29C12B009AA99F /* Array+toJsonObject.swift */; };
 		D66FFE771B2B7B9300C5D1C2 /* Array+path.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FFE761B2B7B9300C5D1C2 /* Array+path.swift */; };
 		D66FFE781B2B7B9300C5D1C2 /* Array+path.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FFE761B2B7B9300C5D1C2 /* Array+path.swift */; };
@@ -393,6 +394,7 @@
 				D620F6B31B2A334D009C3E19 /* README.md in Sources */,
 				D6BAD1C81B36B4E100431198 /* NSManagedObject+Extension.swift in Sources */,
 				D620F6B01B2A277C009C3E19 /* Weak.swift in Sources */,
+				D65ECAF51B36FB1000E3C23C /* TestModel.xcdatamodeld in Sources */,
 				D6BAD1CA1B36C26E00431198 /* Person.swift in Sources */,
 				D6BAD1C91B36C26A00431198 /* Address.swift in Sources */,
 				D6ED3BE71B2D2F2F0058D2C4 /* Object+toJsonObject.swift in Sources */,

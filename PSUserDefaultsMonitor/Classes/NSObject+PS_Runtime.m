@@ -17,14 +17,18 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
     
     Class targetClass = obj.class;
     
+    if( [obj isKindOfClass:[NSNull class]]) {
+        return result;
+    }
+    
     unsigned int propertyCount;
     objc_property_t *properties = class_copyPropertyList(targetClass, &propertyCount);
     
     for (int i = 0; i < propertyCount; i++) {
         objc_property_t property = properties[i];
-        //char *propertyType = property_copyAttributeValue(property, "T");
-        //NSString* propertyTypeName = [NSString stringWithFormat:@"%s", propertyType];
-        //free (propertyType);
+        char *propertyType = property_copyAttributeValue(property, "T");
+        NSString* propertyTypeName = [NSString stringWithFormat:@"%s", propertyType];
+        free (propertyType);
         NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
         char *iVar = property_copyAttributeValue(property, "V");
         NSString *iVarName = [NSString stringWithFormat:@"%s", iVar];
@@ -34,7 +38,7 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
             iVarName = propertyName;
         }
         
-        //NSLog(@"iVarName=%@, name=%@, type=%@", iVarName, propertyName, propertyTypeName);
+        NSLog(@"cls:%@ iVarName=%@, name=%@, type=%@", targetClass, iVarName, propertyName, propertyTypeName);
         
         if( [obj respondsToSelector:NSSelectorFromString(iVarName)] ) {
             @try {

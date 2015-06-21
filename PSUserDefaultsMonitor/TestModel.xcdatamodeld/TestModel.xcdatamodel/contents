@@ -4,7 +4,7 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="address" inverseEntity="Person" syncable="YES"/>
     </entity>
-    <entity name="Person" representedClassName="PSUserDefaultsMonitorTests.Person" syncable="YES">
+    <entity name="Person" representedClassName="PSUserDefaultsMonitor.Person" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
