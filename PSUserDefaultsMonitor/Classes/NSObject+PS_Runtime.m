@@ -38,7 +38,7 @@ NSDictionary* PS_dictionaryFromProperties(NSObject* obj) {
             iVarName = propertyName;
         }
         
-        NSLog(@"cls:%@ iVarName=%@, name=%@, type=%@", targetClass, iVarName, propertyName, propertyTypeName);
+//        NSLog(@"cls:%@ iVarName=%@, name=%@, type=%@", targetClass, iVarName, propertyName, propertyTypeName);
         
         if( [obj respondsToSelector:NSSelectorFromString(iVarName)] ) {
             @try {
