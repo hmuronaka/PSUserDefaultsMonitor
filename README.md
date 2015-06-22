@@ -33,7 +33,8 @@ use_frameworks! # for swift.
 
   PSUserDefaultsMonitor* monitor = [PSUserDefaultsMonitor defaultMonitor];
   
-  [monitor setObject:configuration key:@"configuration"];
+  [monitor setObject:configuration key:@"configuration"]; // for show objects.
+  monitor.managedObjectContext = self.managedObjectContext; // for show CoreData.
   [monitor startMonitorWithPort:5050]; // 5050 is http server listen port.
 }
 ```
