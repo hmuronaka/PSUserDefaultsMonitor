@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Person.truncateAll(self.context.managedObjectContext)
+        Address.truncateAll(self.context.managedObjectContext)
+        
         dictionary["TEST"] = ["A":"1", "B":2,"C":[1,2,3], "D": ["AA":123]]
         dictionary["TEST-Cyclic"] = ["Child":dictionary]
         
@@ -48,9 +51,9 @@ class ViewController: UIViewController {
         p3.name = "n3"
         p3.address = address2
         
-//        Person.truncateAll(self.context.managedObjectContext)
-//        Address.truncateAll(self.context.managedObjectContext)
-//        self.context.managedObjectContext?.save(nil)
+        
+
+        self.context.managedObjectContext?.save(nil)
         
     }
     
