@@ -4,6 +4,8 @@ Simple Httpserver for NSUserDefaults and objects and coredatas.
 
 ![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/docs/example01.png)
 
+[Japanese](http://qiita.com/hmuronaka/items/2e78cda82d1c9640a113)
+
 # Install
 
 ```ruby
