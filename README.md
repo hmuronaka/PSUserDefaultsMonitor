@@ -1,6 +1,6 @@
 # PSUserDefaultsMonitor
 
-Simple Httpserver for NSUserDefaults and objects
+Simple Httpserver for NSUserDefaults and objects and coredatas.
 
 ![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/docs/example01.png)
 
@@ -62,3 +62,11 @@ examples
 - http://192.168.0.4:5050/O/
 
 ![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/docs/example02.png)
+
+## show CoreDatas
+
+http://{your iphone's ipaddress}:{http server's port}/C/{TableName}
+
+examples
+- http://192.168.0.4.:5050/C/Person
+

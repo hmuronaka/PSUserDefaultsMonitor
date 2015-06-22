@@ -11,7 +11,7 @@ import CoreData
 
 extension NSManagedObject {
     
-    public class func all(# tableName: String, managedObjectContext:NSManagedObjectContext?) -> [AnyObject]? {
+    internal class func all(# tableName: String, managedObjectContext:NSManagedObjectContext?) -> [AnyObject]? {
         
         if managedObjectContext == nil {
             return nil
