@@ -72,3 +72,4 @@ http://{your iphone's ipaddress}:{http server's port}/C/{TableName}
 examples
 - http://192.168.0.4.:5050/C/Person
 
+![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/docs/example04.png)
