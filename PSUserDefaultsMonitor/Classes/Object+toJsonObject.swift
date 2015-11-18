@@ -12,11 +12,11 @@ extension NSObject {
     
     internal func PS_toJsonObject() -> AnyObject {
         // for checking cyclic reference.
-        var objectSet = NSMutableSet()
+        let objectSet = NSMutableSet()
         return self.PS_toJsonObject(objectSet:objectSet)
     }
     
-    internal func PS_toJsonObject(# objectSet:NSMutableSet!) -> AnyObject {
+    internal func PS_toJsonObject(objectSet  objectSet:NSMutableSet!) -> AnyObject {
         
         var target:AnyObject! = self
         if let weakObject = self as? Weak<AnyObject> {
@@ -39,7 +39,7 @@ extension NSObject {
         }
     }
     
-    internal func PS_doJSonObject(# objectSet:NSMutableSet!) -> AnyObject {
+    internal func PS_doJSonObject(objectSet  objectSet:NSMutableSet!) -> AnyObject {
         
         if NSJSONSerialization.isValidJSONObject(self) {
             return self
@@ -50,10 +50,10 @@ extension NSObject {
         } else if ( self is NSURL ) {
             return self.description
         } else {
-           var properties:NSDictionary = PS_dictionaryFromProperties(self)
+           let properties:NSDictionary = PS_dictionaryFromProperties(self)
             if( properties.count > 0 ) {
                 // properties.PS_toJsonObject() is compile error.
-               var nsobject:NSObject = properties
+               let nsobject:NSObject = properties
                 return nsobject.PS_toJsonObject(objectSet:objectSet)
             } else {
                 return self.description;

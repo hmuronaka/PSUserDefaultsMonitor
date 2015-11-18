@@ -11,7 +11,7 @@ import CoreData
 
 extension NSManagedObject {
     
-    internal class func all(# tableName: String, managedObjectContext:NSManagedObjectContext?) -> [AnyObject]? {
+    internal class func all(tableName  tableName: String, managedObjectContext:NSManagedObjectContext?) -> [AnyObject]? {
         
         if managedObjectContext == nil {
             return nil
@@ -23,7 +23,10 @@ extension NSManagedObject {
         fetchRequest.sortDescriptors = []
         
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultController.performFetch(nil)
+        do {
+            try fetchedResultController.performFetch()
+        } catch _ {
+        }
         
         return fetchedResultController.fetchedObjects
     }
@@ -46,23 +49,23 @@ extension NSManagedObject {
     }
     
     internal static func create(managedObjectContext:NSManagedObjectContext?) -> NSManagedObject! {
-        var result = NSEntityDescription.insertNewObjectForEntityForName(className(),
-            inManagedObjectContext: managedObjectContext!) as! NSManagedObject
+        let result = NSEntityDescription.insertNewObjectForEntityForName(className(),
+            inManagedObjectContext: managedObjectContext!) 
         
         return result
     }
     
     internal static func create(cls:AnyClass!, managedObjectContext:NSManagedObjectContext?) -> NSManagedObject! {
         
-        var result = NSEntityDescription.insertNewObjectForEntityForName(className(cls),
-            inManagedObjectContext: managedObjectContext!) as! NSManagedObject
+        let result = NSEntityDescription.insertNewObjectForEntityForName(className(cls),
+            inManagedObjectContext: managedObjectContext!) 
         
         return result
     }
     
     internal static func truncateAll(tableName:String, managedObjectContext:NSManagedObjectContext?) {
         
-        var objs = NSManagedObject.all(tableName: tableName, managedObjectContext:managedObjectContext)
+        let objs = NSManagedObject.all(tableName: tableName, managedObjectContext:managedObjectContext)
         
         if let allObjs = objs as? [NSManagedObject] {
             for managedObj:NSManagedObject in allObjs {
@@ -79,10 +82,8 @@ extension NSManagedObject {
     
     internal func deleteObject(managedObjectContext:NSManagedObjectContext?) {
         
-        var myObj = managedObjectContext?.existingObjectWithID(self.objectID, error: nil)
-        
-        if myObj != nil {
-            managedObjectContext?.deleteObject(myObj!)
+        if let myObj = try! managedObjectContext?.existingObjectWithID(self.objectID) {
+            managedObjectContext?.deleteObject(myObj)
         }
     }
     

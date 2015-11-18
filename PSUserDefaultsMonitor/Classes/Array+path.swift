@@ -14,13 +14,13 @@ extension NSArray {
         
         var onePath = path
         
-        var range = path.rangeOfString(separator)
+        let range = path.rangeOfString(separator)
         
         var result:AnyObject!
         
         if let location = range {
             onePath = path.substringToIndex(location.startIndex)
-            if let index = onePath.toInt() {
+            if let index = Int(onePath) {
                 if let children = self[index] as? NSDictionary {
                     result = children.PS_valueForDictionaryPath(path.substringFromIndex(location.startIndex.successor()), separator:separator)
                 } else if let children = self[index] as? NSArray {
@@ -28,7 +28,7 @@ extension NSArray {
                 }
             }
         } else {
-            if let index = onePath.toInt() {
+            if let index = Int(onePath) {
                 result = self[index]
             }
         }

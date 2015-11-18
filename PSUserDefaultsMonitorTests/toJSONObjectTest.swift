@@ -36,14 +36,14 @@ class toJSONObjectTest: XCTestCase {
         // This is an example of a functional test case.
         //println(obj.PS_toJsonObject())
         obj.PS_toJsonObject()
-        XCTAssertEqual("ABCDE", obj.PS_toJsonObject() as! String)
+        XCTAssertEqual("ABCDE", obj.PS_toJsonObject() as? String)
     }
     
     func testNumberToJson() {
         
         let obj = NSNumber(int:20)
         
-        XCTAssertEqual(NSNumber(int:20), obj.PS_toJsonObject() as! NSNumber)
+        XCTAssertEqual(NSNumber(int:20), obj.PS_toJsonObject() as? NSNumber)
     }
     
     func testTAddress() {
@@ -52,7 +52,7 @@ class toJSONObjectTest: XCTestCase {
         
         let json = address.PS_toJsonObject() as! NSDictionary
         XCTAssertEqual(1, json.count)
-        XCTAssertEqual("kanagawa", json["address"] as! String)
+        XCTAssertEqual("kanagawa", json["address"] as? String)
     }
     
     func testTPersonAndTAddressIsNil() {
@@ -60,9 +60,9 @@ class toJSONObjectTest: XCTestCase {
         let person = TPerson(name: "ABC", age: 1)
         let json = person.PS_toJsonObject() as! NSDictionary
         XCTAssertEqual(3, json.count)
-        XCTAssertEqual("ABC", json["name"] as! String)
-        XCTAssertEqual(NSNumber(int: 1), json["age"] as! NSNumber)
-        XCTAssertEqual("null", json["address"] as! String)
+        XCTAssertEqual("ABC", json["name"] as? String)
+        XCTAssertEqual(NSNumber(int: 1), json["age"] as? NSNumber)
+        XCTAssertEqual("null", json["address"] as? String)
     }
     
     func testTPerson() {
@@ -72,12 +72,12 @@ class toJSONObjectTest: XCTestCase {
         
         let json = person.PS_toJsonObject() as! NSDictionary
         XCTAssertEqual(3, json.count)
-        XCTAssertEqual("ABC", json["name"] as! String)
-        XCTAssertEqual(NSNumber(int: 1), json["age"] as! NSNumber)
-        println(json)
+        XCTAssertEqual("ABC", json["name"] as? String)
+        XCTAssertEqual(NSNumber(int: 1), json["age"] as? NSNumber)
+        print(json)
         
         if let address = json["address"] as? NSDictionary {
-            XCTAssertEqual("ADDRESS", address["address"] as! String)
+            XCTAssertEqual("ADDRESS", address["address"] as? String)
         }
     }
     
@@ -91,14 +91,14 @@ class toJSONObjectTest: XCTestCase {
         
         let members = json["member"] as! NSArray
         
-        println(json)
+        print(json)
         XCTAssertEqual(2, members.count)
         
         let m1 = members[0] as! NSDictionary
-        XCTAssertEqual("A", m1["name"] as! String)
+        XCTAssertEqual("A", m1["name"] as? String)
         
         let m2 = members[1] as! NSDictionary
-        XCTAssertEqual("B", m2["name"] as! String)
+        XCTAssertEqual("B", m2["name"] as? String)
     }
     
     func testPerformanceExample() {

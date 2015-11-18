@@ -10,10 +10,10 @@ import Foundation
 
 extension NSArray {
     
-    internal override func PS_doJSonObject(#objectSet: NSMutableSet!) -> AnyObject {
+    internal override func PS_doJSonObject(objectSet objectSet: NSMutableSet!) -> AnyObject {
         
         var result = [AnyObject](count: self.count, repeatedValue: 0)
-        for (index, value) in enumerate(self) {
+        for (index, value) in self.enumerate() {
             if let obj = value as? NSObject {
                 result[index] = obj.PS_toJsonObject(objectSet:objectSet)
             } else {

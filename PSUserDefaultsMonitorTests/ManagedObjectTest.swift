@@ -17,25 +17,32 @@ class ManagedObjectTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        var obj:NSManagedObject? = Address.create(context.managedObjectContext)
-        var address:Address! = obj as? Address
+        Address.truncateAll(context.managedObjectContext)
+        Person.truncateAll(context.managedObjectContext)
+        do {
+            try context.managedObjectContext?.save()
+        } catch _ {
+        }
+        
+        let obj:NSManagedObject? = Address.create(context.managedObjectContext)
+        let address:Address! = obj as? Address
         
 //        var address:Address = NSManagedObject.create(Address.self, managedObjectContext:context.managedObjectContext) as! Address
         address.address = "A"
         
-        var address2 = Address.create(context.managedObjectContext) as! Address
+        let address2 = Address.create(context.managedObjectContext) as! Address
         address2.address = "B"
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        var p1 = Person.create(context.managedObjectContext) as! Person
+        let p1 = Person.create(context.managedObjectContext) as! Person
         p1.name = "n1"
         p1.address = address
         
-        var p2 = Person.create(context.managedObjectContext) as! Person
+        let p2 = Person.create(context.managedObjectContext) as! Person
         p2.name = "n2"
         p2.address = address
         
-        var p3 = Person.create(context.managedObjectContext) as! Person
+        let p3 = Person.create(context.managedObjectContext) as! Person
         p3.name = "n3"
         p3.address = address2
         
@@ -46,7 +53,10 @@ class ManagedObjectTest: XCTestCase {
         
         Address.truncateAll(context.managedObjectContext)
         Person.truncateAll(context.managedObjectContext)
-        context.managedObjectContext?.save(nil)
+        do {
+            try context.managedObjectContext?.save()
+        } catch _ {
+        }
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         
@@ -55,7 +65,7 @@ class ManagedObjectTest: XCTestCase {
     func testAllAddress() {
         // This is an example of a functional test case.
         var addresses = Address.all(context.managedObjectContext) as! [Address]
-        addresses.sort { (a, b) -> Bool in
+        addresses.sortInPlace { (a, b) -> Bool in
             return a < b
         }
         XCTAssertEqual(2, addresses.count)
@@ -72,7 +82,7 @@ class ManagedObjectTest: XCTestCase {
         
         XCTAssertEqual(3, people.count)
         
-        println("\(people.PS_toJsonObject())")
+        print("\(people.PS_toJsonObject())")
         
     }
 

@@ -10,24 +10,24 @@ import Foundation
 
 extension String {
     
-    internal func substringSafety(# fromIndex:Int, length:Int) -> String {
+    internal func substringSafety(fromIndex  fromIndex:Int, length:Int) -> String {
         
-        if fromIndex > count(self) {
+        if fromIndex > self.characters.count {
             return ""
         }
         
         var endIndex:Int
         if(length == -1) {
-            endIndex = count(self)
+            endIndex = self.characters.count
         } else {
             endIndex = fromIndex + length
-            endIndex = min(endIndex, count(self))
+            endIndex = min(endIndex, self.characters.count)
         }
         
-        return self.substringWithRange(Range(start:advance(self.startIndex, fromIndex), end:advance(self.startIndex, endIndex)))
+        return self.substringWithRange(Range(start:self.startIndex.advancedBy(fromIndex), end:self.startIndex.advancedBy(endIndex)))
     }
     
-    internal func substringSafety(# fromIndex:Int) -> String {
+    internal func substringSafety(fromIndex  fromIndex:Int) -> String {
         return substringSafety(fromIndex: fromIndex, length: -1)
     }
     
@@ -36,33 +36,45 @@ extension String {
     }
     
     internal func rangeFromNSRange(nsrange:NSRange) -> Range<String.Index> {
-        return Range<String.Index>(start: advance(self.startIndex, nsrange.location), end: advance(self.startIndex, nsrange.location + nsrange.length))
+        return Range<String.Index>(start: self.startIndex.advancedBy(nsrange.location), end: self.startIndex.advancedBy(nsrange.location + nsrange.length))
     }
     
     internal func match(pattern:String) -> PAMatch  {
         var error:NSError?
-        let regex = NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.allZeros, error: &error)
-        
-        if error != nil {
-            println("\(error!)")
+        let regex: NSRegularExpression?
+        do {
+            regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions())
+        } catch let error1 as NSError {
+            error = error1
+            regex = nil
         }
         
-        let nsmatch = regex?.firstMatchInString(self , options: NSMatchingOptions.allZeros, range: NSMakeRange(0, count(self)))
+        if error != nil {
+            print("\(error!)")
+        }
+        
+        let nsmatch = regex?.firstMatchInString(self , options: NSMatchingOptions(), range: NSMakeRange(0, self.characters.count))
         
         return PAMatch(originalString: self, match: nsmatch)
     }
     
-    internal func removeMatchedString(# pattern:String) -> String? {
+    internal func removeMatchedString(pattern  pattern:String) -> String? {
         
         var error:NSError?
-        let regex = NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.allZeros, error: &error)
+        let regex: NSRegularExpression?
+        do {
+            regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions())
+        } catch let error1 as NSError {
+            error = error1
+            regex = nil
+        }
         
         if error != nil {
-            println("\(error!)")
+            print("\(error!)")
             return nil
         }
         
-        let result = regex?.stringByReplacingMatchesInString(self, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, count(self)), withTemplate: "")
+        let result = regex?.stringByReplacingMatchesInString(self, options: NSMatchingOptions(), range: NSMakeRange(0, self.characters.count), withTemplate: "")
         
         return result
         

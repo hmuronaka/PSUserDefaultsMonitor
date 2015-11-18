@@ -38,10 +38,10 @@ public class PSUserDefaultsMonitor : NSObject {
     // MARK: -
     // MARK: monitoring
     
-    public func startMonitor(#port:UInt) {
+    public func startMonitor(port port:UInt) {
         
         if( webServer != nil ) {
-            println("server is already run!")
+            print("server is already run!")
             return
         }
         
@@ -66,7 +66,7 @@ public class PSUserDefaultsMonitor : NSObject {
         self.objectMap[key] = Weak(value: object)
     }
     
-    public func removeObject(#key:NSObject) {
+    public func removeObject(key key:NSObject) {
         self.objectMap.removeValueForKey(key)
     }
     
@@ -97,7 +97,7 @@ public class PSUserDefaultsMonitor : NSObject {
         
         var jsonDictionary:NSObject! = [NSObject:AnyObject]()
         if dictionary != nil {
-            let path = url.path!.substringSafety(fromIndex: count(prefix.utf16))
+            let path = url.path!.substringSafety(fromIndex: prefix.utf16.count)
             if let dict = dictionary.PS_valueForDictionaryPath(path, separator: "/") as? NSObject {
                 jsonDictionary = dict
             }
@@ -105,7 +105,7 @@ public class PSUserDefaultsMonitor : NSObject {
         return GCDWebServerDataResponse(JSONObject: jsonDictionary.PS_toJsonObject())
     }
     
-    private func dictionaryFromCoreData(var tableName:String) -> NSDictionary! {
+    private func dictionaryFromCoreData(tableName:String) -> NSDictionary! {
         
         if let objs = NSManagedObject.all(tableName: tableName, managedObjectContext: self.managedObjectContext) {
             return [tableName: objs]

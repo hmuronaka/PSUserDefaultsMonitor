@@ -10,8 +10,8 @@ import Foundation
 
 extension NSDictionary {
     
-    internal override func PS_doJSonObject(#objectSet: NSMutableSet!) -> AnyObject {
-        return self.PS_toJsonObjectImpl(self as! [NSObject:AnyObject], objectSet:objectSet)
+    internal override func PS_doJSonObject(objectSet objectSet: NSMutableSet!) -> AnyObject {
+        return self.PS_toJsonObjectImpl(self as [NSObject:AnyObject], objectSet:objectSet)
     }
 
     private func PS_toJsonObjectImpl(dictionary:[NSObject:AnyObject], objectSet:NSMutableSet) -> [NSObject:AnyObject] {

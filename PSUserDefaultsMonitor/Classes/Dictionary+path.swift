@@ -19,7 +19,7 @@ extension NSDictionary {
             return self
         }
         
-        var range = path.rangeOfString(separator)
+        let range = path.rangeOfString(separator)
         if let location = range {
             onePath = path.substringToIndex(location.startIndex)
             if let children = self.objectForKey(onePath) as? NSDictionary {

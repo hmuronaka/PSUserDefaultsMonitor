@@ -40,9 +40,9 @@ class RegExTest: XCTestCase {
     
     func testRemovePattern() {
         
-        XCTAssertEqual("ABC", "ABC".removeMatchedString(pattern: "^.*\\.")!)
-        XCTAssertEqual("DEF", "ABC.DEF".removeMatchedString(pattern: "^.*\\.")!)
-        XCTAssertEqual("GHI", "ABC.DEF.GHI".removeMatchedString(pattern: "^(.*\\.)*")!)
+        XCTAssertEqual("ABC", "ABC".removeMatchedString(pattern: "^.*\\."))
+        XCTAssertEqual("DEF", "ABC.DEF".removeMatchedString(pattern: "^.*\\."))
+        XCTAssertEqual("GHI", "ABC.DEF.GHI".removeMatchedString(pattern: "^(.*\\.)*"))
         
     }
 
