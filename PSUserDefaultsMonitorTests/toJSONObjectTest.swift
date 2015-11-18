@@ -46,29 +46,29 @@ class toJSONObjectTest: XCTestCase {
         XCTAssertEqual(NSNumber(int:20), obj.PS_toJsonObject() as! NSNumber)
     }
     
-    func testAddress() {
+    func testTAddress() {
         
-        let address = Address("kanagawa")
+        let address = TAddress("kanagawa")
         
         let json = address.PS_toJsonObject() as! NSDictionary
         XCTAssertEqual(1, json.count)
         XCTAssertEqual("kanagawa", json["address"] as! String)
     }
     
-    func testPersonAndAddressIsNil() {
+    func testTPersonAndTAddressIsNil() {
         
-        let person = Person(name: "ABC", age: 1)
+        let person = TPerson(name: "ABC", age: 1)
         let json = person.PS_toJsonObject() as! NSDictionary
         XCTAssertEqual(3, json.count)
         XCTAssertEqual("ABC", json["name"] as! String)
         XCTAssertEqual(NSNumber(int: 1), json["age"] as! NSNumber)
-        XCTAssertEqual("<null>", json["address"] as! String)
+        XCTAssertEqual("null", json["address"] as! String)
     }
     
-    func testPerson() {
+    func testTPerson() {
         
-        let person = Person(name: "ABC", age: 1)
-        person.address = Address("ADDRESS")
+        let person = TPerson(name: "ABC", age: 1)
+        person.address = TAddress("ADDRESS")
         
         let json = person.PS_toJsonObject() as! NSDictionary
         XCTAssertEqual(3, json.count)
@@ -81,11 +81,11 @@ class toJSONObjectTest: XCTestCase {
         }
     }
     
-    func testFamily() {
+    func testTFamily() {
         
-        let family = Family()
-        family.member.append(Person(name: "A", age: 1))
-        family.member.append(Person(name: "B", age: 2))
+        let family = TFamily()
+        family.member.append(TPerson(name: "A", age: 1))
+        family.member.append(TPerson(name: "B", age: 2))
         
         let json = family.PS_toJsonObject() as! NSDictionary
         

@@ -45,6 +45,10 @@ extension NSObject {
             return self
         } else if ( self is NSNumber || self is NSString ) {
             return self
+        } else if ( self is NSNull ) {
+            return "null"
+        } else if ( self is NSURL ) {
+            return self.description
         } else {
            var properties:NSDictionary = PS_dictionaryFromProperties(self)
             if( properties.count > 0 ) {

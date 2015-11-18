@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 public class PSUserDefaultsMonitor : NSObject {
     
@@ -18,9 +19,17 @@ public class PSUserDefaultsMonitor : NSObject {
     // Objects Map
     private static let OBJECTS = "/O"
     
+    // CoreData
+    private static let COREDATAS = "/C"
+    
     private var webServer:GCDWebServer?
     
     private var objectMap = [NSObject:AnyObject]()
+    
+    // NOTE:
+    // Should I use dictionary for saving managedObjectContexts or getters of managedObjectContexts?
+    // Shoudl I use `weak`?
+    public var managedObjectContext:NSManagedObjectContext?
     
     private override init() {
         super.init()
@@ -63,7 +72,6 @@ public class PSUserDefaultsMonitor : NSObject {
     
     // MARK: -
     // MARK: HTTP Server
-    
     private func doGet(request:GCDWebServerRequest) -> GCDWebServerResponse {
         
         let url = request.URL
@@ -74,23 +82,36 @@ public class PSUserDefaultsMonitor : NSObject {
             
             if urlPath.hasPrefix(PSUserDefaultsMonitor.USER_DEFAULTS) {
                 prefix = PSUserDefaultsMonitor.USER_DEFAULTS
-                    urlPath.substringFromIndex(advance(urlPath.startIndex, count(PSUserDefaultsMonitor.USER_DEFAULTS.utf16)))
                 dictionary = NSUserDefaults.standardUserDefaults().dictionaryRepresentation() as NSDictionary
             } else if urlPath.hasPrefix(PSUserDefaultsMonitor.OBJECTS) {
                 prefix = PSUserDefaultsMonitor.OBJECTS
                 dictionary = self.objectMap
+            } else if urlPath.hasPrefix(PSUserDefaultsMonitor.COREDATAS) {
+                prefix = PSUserDefaultsMonitor.COREDATAS
+                let match = urlPath.match("\(prefix)/([^/]+)")
+                if let tableName = match[1] {
+                    dictionary = self.dictionaryFromCoreData(tableName)
+                }
             }
-            
         }
         
         var jsonDictionary:NSObject! = [NSObject:AnyObject]()
         if dictionary != nil {
-            let path = url.path!.substringFromIndex(advance(url.path!.startIndex, count(prefix.utf16)))
+            let path = url.path!.substringSafety(fromIndex: count(prefix.utf16))
             if let dict = dictionary.PS_valueForDictionaryPath(path, separator: "/") as? NSObject {
                 jsonDictionary = dict
             }
         }
         return GCDWebServerDataResponse(JSONObject: jsonDictionary.PS_toJsonObject())
+    }
+    
+    private func dictionaryFromCoreData(var tableName:String) -> NSDictionary! {
+        
+        if let objs = NSManagedObject.all(tableName: tableName, managedObjectContext: self.managedObjectContext) {
+            return [tableName: objs]
+        } else {
+            return [tableName: "error"]
+        }
     }
     
 }

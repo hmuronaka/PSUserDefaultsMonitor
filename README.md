@@ -1,8 +1,10 @@
 # PSUserDefaultsMonitor
 
-Simple Httpserver for NSUserDefaults and objects
+Simple Httpserver for NSUserDefaults and objects and coredatas.
 
 ![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/docs/example01.png)
+
+[Japanese](http://qiita.com/hmuronaka/items/2e78cda82d1c9640a113)
 
 # Install
 
@@ -31,7 +33,8 @@ use_frameworks! # for swift.
 
   PSUserDefaultsMonitor* monitor = [PSUserDefaultsMonitor defaultMonitor];
   
-  [monitor setObject:configuration key:@"configuration"];
+  [monitor setObject:configuration key:@"configuration"]; // for show objects.
+  monitor.managedObjectContext = self.managedObjectContext; // for show CoreData.
   [monitor startMonitorWithPort:5050]; // 5050 is http server listen port.
 }
 ```
@@ -62,3 +65,12 @@ examples
 - http://192.168.0.4:5050/O/
 
 ![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/docs/example02.png)
+
+## show CoreDatas
+
+http://{your iphone's ipaddress}:{http server's port}/C/{TableName}
+
+examples
+- http://192.168.0.4.:5050/C/Person
+
+![example](https://raw.githubusercontent.com/hmuronaka/PSUserDefaultsMonitor/master/docs/example04.png)
