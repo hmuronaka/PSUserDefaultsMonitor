@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.osx.deployment_target = "10.9"
   s.ios.deployment_target = "7.0"
-  s.source   = { :git => "https://github.com/hmuronaka/PSUserDefaultsMonitor.git" }
+  s.source   = { :git => "https://github.com/hmuronaka/PSUserDefaultsMonitor.git", tag: s.version }
   s.source_files = ["PSUserDefaultsMonitor/Classes/*.{swift,h,m}", "PSUserDefaultsMonitor/PSUserDefaultsMonitor-Bridging-Header.h"]
   s.dependency 'GCDWebServer', "~> 3.0"
 end
